@@ -14,32 +14,6 @@ QuickSight**.
 
 ![Spotify Data Engineering Architecture](architecture.png)
 
-### End-to-End Data Flow
-
-``` text
-Spotify Dataset
-      |
-      v
-Amazon S3 - Staging
-      |
-      v
-AWS Glue ETL + PySpark
-      |
-      v
-Amazon S3 - Processed Data Layer
-      |
-      v
-AWS Glue Crawler
-      |
-      v
-AWS Glue Data Catalog
-      |
-      v
-Amazon Athena
-      |
-      v
-Amazon QuickSight
-```
 
 ------------------------------------------------------------------------
 
@@ -62,16 +36,16 @@ interactive dashboards and visualization.
 
 ## Technologies Used
 
-  Technology                  Purpose
-  --------------------------- ----------------------------------------
-  **Amazon S3**               Raw and processed data storage
-  **AWS Glue**                Serverless ETL and data integration
-  **PySpark**                 Data transformation and processing
-  **AWS Glue Crawler**        Automatic schema discovery
-  **AWS Glue Data Catalog**   Metadata and table management
-  **Amazon Athena**           Serverless SQL analytics
-  **Amazon QuickSight**       Data visualization and dashboards
-  **Git & GitHub**            Version control and project management
+| Technology | Purpose |
+|---|---|
+| Amazon S3 | Raw and processed data storage |
+| AWS Glue | Serverless ETL and data integration |
+| PySpark | Data transformation and processing |
+| AWS Glue Crawler | Automatic schema discovery |
+| AWS Glue Data Catalog | Metadata and table management |
+| Amazon Athena | Serverless SQL analytics |
+| Amazon QuickSight | Data visualization and dashboards |
+| Git & GitHub | Version control and project management |
 
 ------------------------------------------------------------------------
 
