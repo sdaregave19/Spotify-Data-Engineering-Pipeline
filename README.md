@@ -138,34 +138,6 @@ The ETL workflow includes:
 6.  Dropping unnecessary fields
 7.  Writing the final processed dataset to S3
 
-### Transformation Flow
-
-``` text
-Album Dataset ──────┐
-                    |
-                    v
-                  JOIN
-                    ^
-                    |
-Artist Dataset ─────┘
-                    |
-                    v
-              Joined Dataset
-                    |
-                    +──────── Tracks Dataset
-                    |                |
-                    └────── JOIN ───┘
-                            |
-                            v
-                       Drop Fields
-                            |
-                            v
-                    Processed Dataset
-                            |
-                            v
-                           S3
-```
-
 ------------------------------------------------------------------------
 
 ## 3. Data Storage --- Amazon S3
@@ -301,10 +273,6 @@ insights.
 -   Which tracks have the highest popularity?
 -   Which artists have the most followers?
 -   What is the average track duration?
--   Which albums contain the most tracks?
--   How are tracks distributed by popularity?
--   Which artists have the highest number of tracks?
--   How does artist popularity relate to followers?
 
 ### Example SQL
 
@@ -343,10 +311,6 @@ QuickSight Dataset
       v
 Interactive Dashboard
 ```
-
-> If QuickSight is not available for your AWS account, the same Athena
-> output can be visualized using another BI tool such as Power BI.
-
 ------------------------------------------------------------------------
 
 # Complete Architecture
@@ -414,65 +378,6 @@ Interactive Dashboard
 
 ------------------------------------------------------------------------
 
-# Project Structure
-
-``` text
-Spotify-Data-Engineering-Pipeline/
-|
-├── data/
-|   └── README.md
-|
-├── scripts/
-|   └── spotify_etl.py
-|
-├── notebooks/
-|   └── spotify_analysis.ipynb
-|
-├── architecture.png
-├── glue_etl_workflow.png
-├── athena_query_results.png
-├── athena_column_query.png
-├── README.md
-└── requirements.txt
-```
-
-Adjust the folder structure above to match the actual files in your
-repository.
-
-------------------------------------------------------------------------
-
-# Project Workflow Summary
-
-  Stage   AWS Service         Work Performed
-  ------- ------------------- -----------------------------
-  1       Amazon S3           Store raw Spotify data
-  2       AWS Glue            Run ETL workflow
-  3       PySpark             Transform and join datasets
-  4       Amazon S3           Store processed data
-  5       Glue Crawler        Discover schema
-  6       Glue Data Catalog   Store metadata
-  7       Amazon Athena       Run SQL queries
-  8       Amazon QuickSight   Visualize insights
-
-------------------------------------------------------------------------
-
-# Learning Outcomes
-
-Through this project, I gained practical experience in:
-
--   Designing cloud-based data pipelines
--   Working with Amazon S3
--   Building ETL workflows with AWS Glue
--   Using PySpark for data transformation
--   Joining multiple datasets
--   Working with Parquet and Snappy compression
--   Using Glue Crawlers and the Data Catalog
--   Performing SQL analytics with Athena
--   Preparing cloud data for BI dashboards
--   Understanding an end-to-end data engineering architecture
-
-------------------------------------------------------------------------
-
 # Future Improvements
 
 The pipeline can be further improved by:
@@ -485,17 +390,6 @@ The pipeline can be further improved by:
 -   Implementing pipeline monitoring and logging
 -   Creating automated dashboard refreshes
 -   Adding more advanced analytical queries
-
-------------------------------------------------------------------------
-
-# Author
-
-**Sangamesh Daregave**
-
-Computer Science Undergraduate
-
-Interested in **Data Engineering, Cloud Computing, Big Data, AWS, and
-PySpark**.
 
 ------------------------------------------------------------------------
 
